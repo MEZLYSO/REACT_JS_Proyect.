@@ -1,6 +1,7 @@
 import { useState } from "react"
 import fetchData from "../services/fetchData"
 import { useNavigate } from "react-router-dom"
+import { PrivatePages, PublicPages } from "../types/pages"
 
 const useLogin = () => {
 
@@ -23,11 +24,16 @@ const useLogin = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
     const response = await loginUser(userdata.username, userdata.password)
-    sessionStorage.setItem("user", JSON.stringify(response.data[0]))
-    navigate("/profile", { replace: true })
+    localStorage.setItem("user", JSON.stringify(response.data[0]))
+    navigate(PrivatePages.HOME, { replace: true })
   }
 
-  return { handleChange, handleSubmit }
+  const handleLogOut = () => {
+    localStorage.removeItem("user")
+    navigate(PublicPages.LOGIN, { replace: true })
+  }
+
+  return { handleChange, handleSubmit, handleLogOut }
 }
 
 export default useLogin

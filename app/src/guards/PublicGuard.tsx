@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom"
 
 function PublicGuard() {
-  const token = sessionStorage.getItem("user")
+  const token = localStorage.getItem("user")
   return !token ? (
     <Outlet />
   ) : (

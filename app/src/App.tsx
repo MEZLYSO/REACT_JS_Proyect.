@@ -3,6 +3,8 @@ import Login from "./pages/Login"
 import Profile from "./pages/Profile"
 import PrivateGuard from "./guards/PrivateGuard"
 import PublicGuard from "./guards/PublicGuard"
+import Home from "./pages/Home"
+import { PrivatePages, PublicPages } from "./types/pages"
 
 function App() {
 
@@ -10,10 +12,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<PublicGuard />}>
-          <Route path="/" element={<Login />} />
+          <Route path={PublicPages.LOGIN} element={<Login />} />
         </Route>
         <Route element={<PrivateGuard />}>
-          <Route path="/profile" element={<Profile />} />
+          <Route path={PrivatePages.PROFILE} element={<Profile />} />
+          <Route path={PrivatePages.HOME} element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>
