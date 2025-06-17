@@ -1,4 +1,3 @@
-import useUser from "../hooks/useUser"
 
 function Home() {
   return (
