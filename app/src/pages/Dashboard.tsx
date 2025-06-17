@@ -1,9 +1,12 @@
 import { PublicPages } from "../types/pages"
+import { Link } from "react-router-dom"
 
 function Dashboard() {
   return (
     <div>
-      <a href={PublicPages.LOGIN}>Login</a>
+      <Link
+        to={PublicPages.LOGIN}
+      >Login</Link>
     </div>
   )
 }
