@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 const useUser = () => {
 
   const initialState = {
-    ID: 0,
-    Username: ""
+    IDUser: 0,
+    Username: "",
+    Userpassword: ""
   }
 
   const [user, setUser] = useState(initialState)
 
-  useEffect(() => {
+  const getInfo = () => {
     const data = localStorage.getItem("user")
-    try {
-      data ? setUser(JSON.parse(data)) : null
-    } catch (err) {
-
+    if (data) {
+      setUser(JSON.parse(data))
     }
-  }, [])
+  }
 
-  return { user }
+  return { user, getInfo }
 }
 
 export default useUser
