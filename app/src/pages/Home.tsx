@@ -1,12 +1,11 @@
 import useUser from "../hooks/useUser"
 
 function Home() {
-  const { user } = useUser()
   return (
     <div className="p-5 flex-col">
       <div>
         <h1 className="text-2xl font-bold">
-          Bienvenido {user.Username}
+          {/* Bienvenido {user.Username} */}
         </h1>
         <div>
           Faltan

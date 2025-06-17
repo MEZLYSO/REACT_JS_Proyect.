@@ -5,6 +5,7 @@ import PrivateGuard from "./guards/PrivateGuard"
 import PublicGuard from "./guards/PublicGuard"
 import Home from "./pages/Home"
 import { PrivatePages, PublicPages } from "./types/pages"
+import Dashboard from "./pages/Dashboard"
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<PublicGuard />}>
+          <Route index element={<Dashboard />} />
           <Route path={PublicPages.LOGIN} element={<Login />} />
         </Route>
         <Route element={<PrivateGuard />}>
