@@ -41,7 +41,7 @@ function Login() {
           </form>
           <p className="font-normal text-xl sm:text-2xl mt-6 sm:mt-10 mx-4 sm:mx-8 text-center">
             ¿No tienes cuenta?{' '}
-            <a className="cursor-progress underline hover:text-blue-600 dark:hover:text-blue-400" href="https://github.com/Yagogo39/FrontendProyecto/blob/main/registro-app/public/logo.jpeg?raw=true">
+            <a className="cursor-progress underline hover:text-blue-600 dark:hover:text-blue-400" href="https://react-js-proyect.onrender.com/">
               Registrate
             </a>
           </p>
