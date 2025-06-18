@@ -5,7 +5,12 @@ const useUser = () => {
   const initialState = {
     IDUser: 0,
     Username: "",
-    Userpassword: ""
+    Userpassword: "",
+    IDParticipant: "",
+    NameParticipant: "",
+    Category: "",
+    LastName_1: "",
+    LastName_2: ""
   }
 
   const [user, setUser] = useState(initialState)
