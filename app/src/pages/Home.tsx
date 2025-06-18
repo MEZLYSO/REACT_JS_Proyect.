@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import useUser from "../hooks/useUser"
 
 function Home() {
-  const { user, getInfo } = useUser()
+  const { user, getInfo, getTime, time } = useUser()
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -26,9 +26,9 @@ function Home() {
     "No importa lo lento que vayas, sigues adelantando a todos los que están en el sofá."
   ]
 
+  getTime()
   useEffect(() => {
     getInfo()
-
     // Temporizador para la cuenta regresiva
     const countdownTimer = setInterval(() => {
       const now = new Date()
@@ -59,7 +59,7 @@ function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+    <div className="min-h-screen bg-gray-50 p-4 md:p-8 mb-10">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
           Bienvenido, {user.Username || "Corredor"}!
@@ -122,13 +122,23 @@ function Home() {
         </div>
 
         {/* Sección adicional de dashboard */}
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-5 grid grid-cols-1 md:grid-cols-1 gap-2">
           <div className="bg-white p-5 rounded-xl shadow-md">
-            <h3 className="font-medium text-gray-700 mb-2">⏱️ Tiempo</h3>
-            <p className="text-2xl font-bold text-green-600">24:35</p>
-            <p className="text-gray-500 text-sm mt-1">en 5.8K</p>
+            <h3 className="font-medium text-gray-700 mb-2">⏱️ Tiempo salida</h3>
+            <p className="text-2xl font-bold text-green-600">{time.StartTime}</p>
           </div>
-
+        </div>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-1 gap-2">
+          <div className="bg-white p-5 rounded-xl shadow-md">
+            <h3 className="font-medium text-gray-700 mb-2">👟 Tiempo llegada</h3>
+            <p className="text-2xl font-bold text-green-600">{time.EndTime}</p>
+          </div>
+        </div>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-1 gap-2">
+          <div className="bg-white p-5 rounded-xl shadow-md">
+            <h3 className="font-medium text-gray-700 mb-2">🏃🏻‍➡️ Tiempo llegada</h3>
+            <p className="text-2xl font-bold text-green-600">{time.ElapsedTime}</p>
+          </div>
         </div>
       </div>
     </div>

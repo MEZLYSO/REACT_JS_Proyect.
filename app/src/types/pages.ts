@@ -4,6 +4,6 @@ export const PrivatePages = {
 }
 
 export const PublicPages = {
-  "LOGIN": "/login",
+  "LOGIN": "/",
   "SIGN": "/signup"
 }

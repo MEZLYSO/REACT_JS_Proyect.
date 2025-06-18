@@ -1,4 +1,5 @@
 import { useState } from "react"
+import fetchData from "../services/fetchData"
 
 const useUser = () => {
 
@@ -13,7 +14,16 @@ const useUser = () => {
     LastName_2: ""
   }
 
+  const initialStateTime = {
+    StartTime: "",
+    EndTime: "",
+    ElapsedTime: ""
+  }
+
   const [user, setUser] = useState(initialState)
+  const [time, setTime] = useState(initialStateTime)
+
+  const { timeUser } = fetchData()
 
   const getInfo = () => {
     const data = localStorage.getItem("user")
@@ -22,7 +32,12 @@ const useUser = () => {
     }
   }
 
-  return { user, getInfo }
+  const getTime = async () => {
+    const date = await timeUser(user.IDParticipant)
+    setTime(date.data[0])
+  }
+
+  return { user, getInfo, getTime, time }
 }
 
 export default useUser

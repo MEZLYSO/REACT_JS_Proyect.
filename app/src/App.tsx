@@ -4,8 +4,7 @@ import Profile from "./pages/Profile"
 import PrivateGuard from "./guards/PrivateGuard"
 import PublicGuard from "./guards/PublicGuard"
 import Home from "./pages/Home"
-import { PrivatePages, PublicPages } from "./types/pages"
-import Dashboard from "./pages/Dashboard"
+import { PrivatePages } from "./types/pages"
 
 function App() {
 
@@ -13,8 +12,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<PublicGuard />}>
-          <Route index element={<Dashboard />} />
-          <Route path={PublicPages.LOGIN} element={<Login />} />
+          {/* <Route index element={<Dashboard />} /> */}
+          <Route index element={<Login />} />
         </Route>
         <Route element={<PrivateGuard />}>
           <Route path={PrivatePages.PROFILE} element={<Profile />} />
