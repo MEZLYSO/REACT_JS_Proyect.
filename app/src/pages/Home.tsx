@@ -136,7 +136,7 @@ function Home() {
         </div>
         <div className="mt-6 grid grid-cols-1 md:grid-cols-1 gap-2">
           <div className="bg-white p-5 rounded-xl shadow-md">
-            <h3 className="font-medium text-gray-700 mb-2">🏃🏻‍➡️ Tiempo llegada</h3>
+            <h3 className="font-medium text-gray-700 mb-2">🏃🏻‍➡️ Tiempo total</h3>
             <p className="text-2xl font-bold text-green-600">{time.ElapsedTime}</p>
           </div>
         </div>
