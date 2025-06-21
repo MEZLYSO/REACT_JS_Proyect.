@@ -11,8 +11,8 @@ const fetchData = () => {
   }
 
   const timeUser = async (id: string) => {
-    return await axios.get(baseURL + "/user/time/" + id)
-      .then(response => response.data)
+    const response = await axios.get(`${baseURL}/user/time/${id}`)
+    return response.data.data[0]
   }
 
   return { loginUser, timeUser }
