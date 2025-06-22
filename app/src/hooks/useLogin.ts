@@ -11,6 +11,7 @@ const useLogin = () => {
   }
 
   const [userdata, setUserData] = useState(initialState)
+  const [status, setStatus] = useState()
 
   const handleChange = (e: any) => {
     setUserData({
@@ -24,9 +25,13 @@ const useLogin = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
-    const response = await loginUser(userdata.username, userdata.password)
-    localStorage.setItem("user", JSON.stringify(response.data[0]))
-    navigate(PrivatePages.HOME, { replace: true })
+    try {
+      const response = await loginUser(userdata.username, userdata.password)
+      localStorage.setItem("user", JSON.stringify(response.data[0]))
+      navigate(PrivatePages.HOME, { replace: true })
+    } catch (err: any) {
+      setStatus(err)
+    }
   }
 
   const handleLogOut = () => {
@@ -34,7 +39,7 @@ const useLogin = () => {
     navigate(PublicPages.LOGIN, { replace: true })
   }
 
-  return { handleChange, handleSubmit, handleLogOut }
+  return { handleChange, handleSubmit, handleLogOut, status, setStatus }
 }
 
 export default useLogin

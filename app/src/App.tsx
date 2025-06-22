@@ -12,7 +12,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<PublicGuard />}>
-          {/* <Route index element={<Dashboard />} /> */}
           <Route index element={<Login />} />
         </Route>
         <Route element={<PrivateGuard />}>

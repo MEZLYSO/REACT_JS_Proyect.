@@ -15,7 +15,7 @@ function Home() {
 
   const { data, status } = useQuery({
     queryKey: ['time_user'],
-    queryFn: () => timeUser(user.IDParticipant),
+    queryFn: async () => await timeUser(user.IDParticipant),
     refetchInterval: 5000,
     enabled: !!user.IDParticipant
   })
